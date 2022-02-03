@@ -13,13 +13,18 @@ export class SongListComponent implements OnInit {
   songs:Song[];
   songNameControl = new FormControl('')
 
+  searchCriteria = new FormControl('')
+
   constructor(private songService:SongService) { }
 
   ngOnInit(): void {
   }
 
   searchSong(){
-    this.songService.searchSong(this.songNameControl.value).subscribe(songs =>{
+    console.log(this.songNameControl.value)
+    console.log(this.searchCriteria.value)
+    
+    this.songService.searchSong(this.songNameControl.value, this.searchCriteria.value).subscribe(songs =>{
       this.songs = songs["results"]
     })
   }
