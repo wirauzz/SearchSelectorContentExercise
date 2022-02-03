@@ -9,12 +9,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollectionListComponent } from './components/collection-list/collection-list.component';
 import { CollectionItemComponent } from './components/collection-item/collection-item.component';
 import { OrderCollectionByComponent } from './components/order-collection-by/order-collection-by.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     CollectionListComponent,
     CollectionItemComponent,
-    OrderCollectionByComponent
+    OrderCollectionByComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

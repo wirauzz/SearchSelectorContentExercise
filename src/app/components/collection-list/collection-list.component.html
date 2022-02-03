@@ -42,11 +42,11 @@
             </li>
                        
             <li class="page-item mx-2">
-                <button class="btn btn-primary" [disabled]="currentPage == 1" (click)="currentPage = currentPage - 1">&laquo;</button>
+                <button class="btn btn-primary" [disabled]="currentPage == 1" (click)="currentPage = currentPage - 1 " (click)="jumpToTop($event)">&laquo;</button>
             </li>
             <span class="mx-2">Page {{currentPage}} of {{ numberOfPages() }}</span>
             <li class="page-item">
-                <button class="btn btn-primary mx-2" [disabled]="currentPage >= songs.length/pageSize" (click)="currentPage = currentPage + 1">&raquo;</button>  
+                <button class="btn btn-primary mx-2" [disabled]="currentPage >= songs.length/pageSize" (click)="currentPage = currentPage + 1" (click)="jumpToTop($event)">&raquo;</button>  
             </li>
         </ul>  
     </div>

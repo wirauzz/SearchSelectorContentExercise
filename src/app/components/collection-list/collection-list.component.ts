@@ -44,4 +44,10 @@ export class CollectionListComponent implements OnInit {
       this.songs.sort((b,a) => a.trackName.localeCompare(b.trackName));
     }
   }
+  jumpToTop(event) {
+    window.scroll({ 
+            top: 0, 
+            left: 0, 
+     });
+ }
 }
