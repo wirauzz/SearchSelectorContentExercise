@@ -6,14 +6,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SongListComponent } from './components/song-list/song-list.component';
 import { SongItemComponent } from './components/song-item/song-item.component';
+import { AudiobookItemComponent } from './components/audiobook-item/audiobook-item.component';
+import { SongVideoItemComponent } from './components/song-video-item/song-video-item.component';
+import { CollectionListComponent } from './components/collection-list/collection-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongListComponent,
-    SongItemComponent
+    SongItemComponent,
+    AudiobookItemComponent,
+    SongVideoItemComponent,
+    CollectionListComponent
   ],
   imports: [
     BrowserModule,

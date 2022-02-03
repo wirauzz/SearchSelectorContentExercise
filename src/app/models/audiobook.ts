@@ -1,9 +1,9 @@
-export class Song{
+export class audiobook{
     artworkUrl100: string;
     trackName: string;
     artistName: string;
     collectionName: string;
     trackTimeMillis: number;
-    collectionPrice: number;
+    trackPrice: number;
     previewUrl: string;
 }

@@ -7,14 +7,10 @@
             </div>
             <div class="col">
                 <select class="form-control col" [formControl]="searchCriteria">
-                    <option value="musicTrack&musicVideo&audiobook&shortFilm&tvSeason&software&ebook">All</option>
+                    <option value="musicTrack&musicVideo&audiobook">All</option>
                     <option value="musicTrack">Music</option>
                     <option value="musicVideo">Music Video</option>
                     <option value="audiobook">Audio Book</option>
-                    <option value="shortFilm">Short Film</option>
-                    <option value="tvSeason">TV Show</option>
-                    <option value="software">Software</option>
-                    <option value="ebook">E-Book</option>
                 </select>
             </div>
             <div class="col">
@@ -31,7 +27,7 @@
     
         <ul class="pagination">
             <li>
-                <label>Songs per page:</label>
+                <label>Items per page:</label>
             </li>
             <li>
                 <label class="mx-3">
