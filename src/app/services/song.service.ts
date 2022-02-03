@@ -18,7 +18,7 @@ export class SongService {
 
   constructor(private Http:HttpClient) { }
 
-  searchSong(text:string):Observable<Song[]>{
-    return this.Http.get<Song[]>(`${this.songUrl}search?term=${text}&entity=song`)
+  searchSong(text:string, criteria:string):Observable<Song[]>{
+    return this.Http.get<Song[]>(`${this.songUrl}search?term=${text}&entity=${criteria}`)
   }
 }
