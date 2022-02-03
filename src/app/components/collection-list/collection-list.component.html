@@ -20,7 +20,7 @@
     </form>
 
 
-    <div class="container mt-5" *ngIf="songs">
+    <div class="container mt-5" *ngIf="songs.length > 0 && emptySearch == false">
         <app-order-collection-by  (optionToOrder)="orderSong($event)"></app-order-collection-by>
         <div class="row">
             <app-collection-item  class="col-4 d-flex align-items-stretch"  *ngFor="let song of songs  | slice: (currentPage * pageSize) - pageSize: currentPage * pageSize " [song]="song"></app-collection-item>
@@ -42,12 +42,16 @@
             </li>
                        
             <li class="page-item mx-2">
-                <button class="btn btn-primary" [disabled]="currentPage == 1" (click)="currentPage = currentPage - 1">&laquo;</button>
+                <button class="btn btn-primary" [disabled]="currentPage == 1" (click)="currentPage = currentPage - 1 " (click)="jumpToTop($event)">&laquo;</button>
             </li>
             <span class="mx-2">Page {{currentPage}} of {{ numberOfPages() }}</span>
             <li class="page-item">
-                <button class="btn btn-primary mx-2" [disabled]="currentPage >= songs.length/pageSize" (click)="currentPage = currentPage + 1">&raquo;</button>  
+                <button class="btn btn-primary mx-2" [disabled]="currentPage >= songs.length/pageSize" (click)="currentPage = currentPage + 1" (click)="jumpToTop($event)">&raquo;</button>  
             </li>
         </ul>  
+    </div>
+
+    <div class="container mt-5" *ngIf="songs.length == 0 && emptySearch == true">
+        <app-no-result-message></app-no-result-message>
     </div>
 </div>
