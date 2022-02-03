@@ -12,33 +12,26 @@ export class SongListComponent implements OnInit {
 
   songs:Song[];
   songNameControl = new FormControl('')
-
   searchCriteria = new FormControl('')
+
+  currentPage:number;
+  pageSize:number;
 
   constructor(private songService:SongService) { }
 
   ngOnInit(): void {
   }
 
-  searchSong(){
-    console.log(this.songNameControl.value)
-    console.log(this.searchCriteria.value)
-    
+  searchSong(){    
     this.songService.searchSong(this.songNameControl.value, this.searchCriteria.value).subscribe(songs =>{
       this.songs = songs["results"]
+      this.currentPage = 1;
+      this.pageSize = 10;
     })
   }
 
-  convertToMinutes(duration:number){
-    let seconds = duration/1000;
-    let minutes = seconds/60;
-    return Math.floor(minutes);
-  }
-
-  convertToSeconds(duration:number){
-    let seconds = duration/1000;
-    let minutes = seconds%60;
-    return Math.floor(minutes);
+  numberOfPages() {
+    return Math.ceil(this.songs.length / this.pageSize);
   }
 
 }
