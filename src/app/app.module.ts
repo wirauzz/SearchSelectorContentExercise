@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SongListComponent } from './components/song-list/song-list.component';
+import { SongItemComponent } from './components/song-item/song-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongListComponent
+    SongListComponent,
+    SongItemComponent
   ],
   imports: [
     BrowserModule,
