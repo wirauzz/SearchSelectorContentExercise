@@ -10,24 +10,39 @@ import { FormControl } from '@angular/forms';
 })
 export class CollectionListComponent implements OnInit {
 
-  songs:Song[];
+  songs:Song[] = [];
   songNameControl = new FormControl('')
   searchCriteria = new FormControl('')
 
   currentPage:number;
   pageSize:number;
-
+  emptySearch:boolean
   constructor(private itunesService:ItunesService) { }
 
   ngOnInit(): void {
   }
 
   searchSong(){    
+    this.emptySearch = true;
+
     this.itunesService.searchSong(this.songNameControl.value, this.searchCriteria.value).subscribe(songs =>{
       this.songs = songs["results"]
+
+      this.isEmptySearch(this.songs)
+
       this.currentPage = 1;
       this.pageSize = 10;
     })
+  }
+
+
+  isEmptySearch(collection:Song[]){
+    if(collection.length == 0){
+      this.emptySearch = true
+    }
+    else{
+      this.emptySearch = false
+    }
   }
 
   numberOfPages() {
