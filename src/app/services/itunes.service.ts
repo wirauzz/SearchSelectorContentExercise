@@ -3,6 +3,7 @@ import { Song } from '../models/song';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 const HttpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'applitcation/json'
@@ -12,13 +13,13 @@ const HttpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+export class ItunesService {
 
-export class SongService {
-  songUrl:string = 'https://itunes.apple.com/'
+  itunesUrl:string = 'https://itunes.apple.com/'
 
   constructor(private Http:HttpClient) { }
 
-  searchSong(text:string, criteria:string):Observable<Song[]>{
-    return this.Http.get<Song[]>(`${this.songUrl}search?term=${text}&entity=${criteria}`)
+  searchSong(text:string, criteria:string){
+    return this.Http.get(`${this.itunesUrl}search?term=${text}&entity=${criteria}`)
   }
 }

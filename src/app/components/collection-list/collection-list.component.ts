@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { SongService } from 'src/app/services/song.service';
+import { ItunesService } from 'src/app/services/itunes.service';
 import { Song } from 'src/app/models/song';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-song-list',
-  templateUrl: './song-list.component.html',
-  styleUrls: ['./song-list.component.css']
+  selector: 'app-collection-list',
+  templateUrl: './collection-list.component.html',
+  styleUrls: ['./collection-list.component.css']
 })
-export class SongListComponent implements OnInit {
+export class CollectionListComponent implements OnInit {
 
   songs:Song[];
   songNameControl = new FormControl('')
@@ -17,13 +17,13 @@ export class SongListComponent implements OnInit {
   currentPage:number;
   pageSize:number;
 
-  constructor(private songService:SongService) { }
+  constructor(private itunesService:ItunesService) { }
 
   ngOnInit(): void {
   }
 
   searchSong(){    
-    this.songService.searchSong(this.songNameControl.value, this.searchCriteria.value).subscribe(songs =>{
+    this.itunesService.searchSong(this.songNameControl.value, this.searchCriteria.value).subscribe(songs =>{
       this.songs = songs["results"]
       this.currentPage = 1;
       this.pageSize = 10;
@@ -33,5 +33,4 @@ export class SongListComponent implements OnInit {
   numberOfPages() {
     return Math.ceil(this.songs.length / this.pageSize);
   }
-
 }
