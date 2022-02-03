@@ -21,8 +21,8 @@
 
 
     <div class="container mt-5" *ngIf="songs">
-        <div class="card-deck ">
-            <app-song-item  *ngFor="let song of songs  | slice: (currentPage * pageSize) - pageSize: currentPage * pageSize " [song]="song"></app-song-item>
+        <div class="row">
+            <app-collection-item  class="col-4 d-flex align-items-stretch"  *ngFor="let song of songs  | slice: (currentPage * pageSize) - pageSize: currentPage * pageSize " [song]="song"></app-collection-item>
         </div>
     
         <ul class="pagination">

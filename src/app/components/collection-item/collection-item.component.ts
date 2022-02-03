@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Song } from 'src/app/models/song';
 
 @Component({
-  selector: 'app-song-item',
-  templateUrl: './song-item.component.html',
-  styleUrls: ['./song-item.component.css']
+  selector: 'app-collection-item',
+  templateUrl: './collection-item.component.html',
+  styleUrls: ['./collection-item.component.css']
 })
-export class SongItemComponent implements OnInit {
+export class CollectionItemComponent implements OnInit {
   @Input() song:Song;
   constructor() { }
 
