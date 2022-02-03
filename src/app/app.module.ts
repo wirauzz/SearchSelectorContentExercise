@@ -6,14 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SongItemComponent } from './components/song-item/song-item.component';
 import { CollectionListComponent } from './components/collection-list/collection-list.component';
+import { CollectionItemComponent } from './components/collection-item/collection-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongItemComponent,
-    CollectionListComponent
+    CollectionListComponent,
+    CollectionItemComponent
   ],
   imports: [
     BrowserModule,
