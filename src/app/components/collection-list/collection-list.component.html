@@ -3,7 +3,7 @@
     <form class="form mt-5 mb-3">
         <div class="row">
             <div class="col-6">
-                <input type="text" class="form-control"  [formControl]="songNameControl" placeholder="Search song">
+                <input type="text" class="form-control"  [formControl]="songNameControl" >
             </div>
             <div class="col">
                 <select class="form-control col" [formControl]="searchCriteria">
@@ -21,6 +21,7 @@
 
 
     <div class="container mt-5" *ngIf="songs">
+        <app-order-collection-by  (optionToOrder)="orderSong($event)"></app-order-collection-by>
         <div class="row">
             <app-collection-item  class="col-4 d-flex align-items-stretch"  *ngFor="let song of songs  | slice: (currentPage * pageSize) - pageSize: currentPage * pageSize " [song]="song"></app-collection-item>
         </div>
